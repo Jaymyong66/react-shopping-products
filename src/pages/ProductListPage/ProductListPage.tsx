@@ -6,6 +6,8 @@ import ProductListTitle from './components/ProductListTitle';
 import useCartItems from '@/hooks/useCartItems';
 import CartModal from '@/components/CartModal/CartModal';
 import styles from './ProductListPage.module.css';
+import { useToast } from '@/hooks/useToast';
+import { ERROR } from '@/constant/message';
 
 const ProductListPage = () => {
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -13,8 +15,15 @@ const ProductListPage = () => {
     category: 'all',
     sort: 'priceAsc',
   });
-  const { cartItems } = useCartItems();
+  const { cartItems, cartItemsQueryError } = useCartItems();
+  const { showToast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (cartItemsQueryError) {
+      showToast({ message: ERROR.fetchCartItems, duration: 3000 });
+    }
+  }, [cartItemsQueryError, showToast]);
 
   useEffect(() => {
     setCartItemCount(cartItems.length);

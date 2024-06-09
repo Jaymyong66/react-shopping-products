@@ -4,6 +4,9 @@ import Loader from '../../../components/Loader/Loader';
 import styles from '../ProductListPage.module.css';
 import useProducts from '@/hooks/useProducts';
 import { CartItemType } from '@/types';
+import { useToast } from '@/hooks/useToast';
+import { ERROR } from '@/constant/message';
+import { useEffect } from 'react';
 
 interface Props {
   selectBarCondition: Record<string, string>;
@@ -11,10 +14,17 @@ interface Props {
 }
 
 const ProductItemList = ({ selectBarCondition, cartItems }: Props) => {
-  const { products, fetchNextPage, isProductsQueryFetching } = useProducts({
+  const { products, fetchNextPage, isProductsQueryFetching, isProductsQueryError } = useProducts({
     selectBarCondition,
   });
+  const { showToast } = useToast();
   const { lastProductElementRef } = useInfinityScroll({ onIntersect: fetchNextPage });
+
+  useEffect(() => {
+    if (isProductsQueryError) {
+      showToast({ message: ERROR.fetchProductList, duration: 3000 });
+    }
+  }, [isProductsQueryError, showToast]);
 
   return (
     <>

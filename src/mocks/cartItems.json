@@ -1,0 +1,95 @@
+{
+  "content": [
+    {
+      "id": 11294,
+      "quantity": 1,
+      "product": {
+        "id": 10,
+        "name": "퓨마",
+        "price": 10000,
+        "imageUrl": "https://sitem.ssgcdn.com/47/78/22/item/1000031227847_i1_750.jpg",
+        "category": "fashion"
+      }
+    },
+    {
+      "id": 11295,
+      "quantity": 1,
+      "product": {
+        "id": 64,
+        "name": "양말",
+        "price": 10000,
+        "imageUrl": "https://images.unsplash.com/photo-1695073621086-aa692bc32a3d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "fashion"
+      }
+    },
+    {
+      "id": 11296,
+      "quantity": 1,
+      "product": {
+        "id": 71,
+        "name": "넥타이",
+        "price": 15000,
+        "imageUrl": "https://images.unsplash.com/3/www.madebyvadim.com.jpg?q=80&w=3282&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "fashion"
+      }
+    },
+    {
+      "id": 11297,
+      "quantity": 1,
+      "product": {
+        "id": 67,
+        "name": "벨트",
+        "price": 15000,
+        "imageUrl": "https://images.unsplash.com/photo-1593081891731-fda0877988da?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "fashion"
+      }
+    },
+    {
+      "id": 11302,
+      "quantity": 1,
+      "product": {
+        "id": 3,
+        "name": "아디다스",
+        "price": 2000,
+        "imageUrl": "https://sitem.ssgcdn.com/74/25/04/item/1000373042574_i1_750.jpg",
+        "category": "fashion"
+      }
+    },
+    {
+      "id": 11629,
+      "quantity": 1,
+      "product": {
+        "id": 108,
+        "name": "소설책",
+        "price": 5000,
+        "imageUrl": "https://plus.unsplash.com/premium_photo-1681825268400-c561bd47d586?q=80&w=3544&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "books"
+      }
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "pageNumber": 0,
+    "pageSize": 100,
+    "offset": 0,
+    "paged": true,
+    "unpaged": false
+  },
+  "last": true,
+  "totalPages": 1,
+  "totalElements": 6,
+  "sort": {
+    "sorted": false,
+    "unsorted": true,
+    "empty": true
+  },
+  "first": true,
+  "number": 0,
+  "numberOfElements": 6,
+  "size": 100,
+  "empty": false
+}

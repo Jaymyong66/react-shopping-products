@@ -1,0 +1,31 @@
+.stepperContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  width: 80px;
+  height: 24px;
+}
+
+.stepperButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.stepperButtonImg {
+  width: 12px;
+}
+
+.stepperValue {
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+}

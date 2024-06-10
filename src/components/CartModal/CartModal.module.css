@@ -1,0 +1,54 @@
+.modalContainer {
+  max-width: calc(430px - 64px);
+  max-height: 70vh;
+}
+
+.cartItemContainer {
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 24px;
+  gap: 16px;
+}
+
+.cartItemImg {
+  min-width: 80px;
+  max-width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.cartItemInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 300px;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.cartItemDeleteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.stepperWrapper {
+  position: relative;
+}
+
+.footerCloseButton {
+  width: 100%;
+}
+
+.totalAmountContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 42px;
+  margin-bottom: 24px;
+  padding-top: 12px;
+}

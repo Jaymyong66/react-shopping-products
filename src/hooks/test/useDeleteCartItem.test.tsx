@@ -1,15 +1,22 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
-import useCartItems from '../useCartItems';
+import useCartItems from '../queries/useCartItems';
 import { queryWrapper } from './wrapper.util';
-import useDeleteCartItem from '../useDeleteCartItem';
+import useDeleteCartItem from '../queries/useDeleteCartItem';
 import cartItems from '@/mocks/cartItems.json';
+import { useToast } from '../useToast';
+import { ERROR } from '@/constant/message';
 
 describe('useDeleteCartItem 훅 테스트', () => {
   it('장바구니에서 상품을 상품 ID로 제거한다.', async () => {
     const { result } = renderHook(
       () => {
+        const { showToast } = useToast();
         const { cartItems, cartItemsQuerySuccess } = useCartItems();
-        const { deleteCartItem, isDeleteCartItemSuccess } = useDeleteCartItem();
+        const { deleteCartItem, isDeleteCartItemSuccess } = useDeleteCartItem({
+          onError: () => {
+            showToast({ message: ERROR.deleteProduct, duration: 3000 });
+          },
+        });
 
         return {
           deleteCartItem,
@@ -46,7 +53,12 @@ describe('useDeleteCartItem 훅 테스트', () => {
   it('장바구니에서 상품을 장바구니 ID로 제거할 때, 존재하지 않는 ID라면 에러를 받는다', async () => {
     const { result } = renderHook(
       () => {
-        const { deleteCartItem, isDeleteCartItemError } = useDeleteCartItem();
+        const { showToast } = useToast();
+        const { deleteCartItem, isDeleteCartItemError } = useDeleteCartItem({
+          onError: () => {
+            showToast({ message: ERROR.deleteProduct, duration: 3000 });
+          },
+        });
 
         return {
           deleteCartItem,

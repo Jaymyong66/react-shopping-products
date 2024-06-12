@@ -1,12 +1,13 @@
 import { deleteCartItem } from '@/api';
-import { ERROR } from '@/constant/message';
 import { MUTATION_KEY, QUERY_KEY } from '@/constant/queryKey';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useToast } from './useToast';
 
-const useDeleteCartItem = () => {
+interface Props {
+  onError: () => void;
+}
+
+const useDeleteCartItem = ({ onError }: Props) => {
   const client = useQueryClient();
-  const { showToast } = useToast();
 
   const { mutate, isError, isSuccess } = useMutation({
     mutationKey: [MUTATION_KEY.DELETE_CART_ITEM],
@@ -16,9 +17,7 @@ const useDeleteCartItem = () => {
         queryKey: [QUERY_KEY.CART_ITEMS],
       });
     },
-    onError: () => {
-      showToast({ message: ERROR.deleteProduct, duration: 3000 });
-    },
+    onError,
   });
 
   return {

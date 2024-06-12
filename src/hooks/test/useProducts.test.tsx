@@ -1,6 +1,6 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import useProducts from '../useProducts';
+import useProducts from '../queries/useProducts';
 import { productCategories, sortOptions } from '../../constant/products';
 import { ToastProvider } from '@/context/ToastProvider';
 
@@ -63,10 +63,8 @@ describe('useProducts 훅 테스트', () => {
     });
 
     for (let i = 1; i < 21; i++) {
-      await waitFor(() => {
-        act(() => {
-          result.current.fetchNextPage();
-        });
+      act(() => {
+        result.current.fetchNextPage();
       });
 
       const expectedLength = 20 + i * 4;

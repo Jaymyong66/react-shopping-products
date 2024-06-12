@@ -12,11 +12,15 @@ const Stepper = ({ value, handleClickPlus, handleClickMinus }: Props) => {
   return (
     <div className={styles.stepperContainer}>
       <button className={styles.stepperButton} onClick={handleClickMinus}>
-        <img src={minusIcon} className={styles.stepperButtonImg} />
+        <img
+          src={minusIcon}
+          className={styles.stepperButtonImg}
+          alt="cartItem-quantity-minus-icon"
+        />
       </button>
       <span className={styles.stepperValue}>{value}</span>
       <button className={styles.stepperButton} onClick={handleClickPlus}>
-        <img src={plusIcon} className={styles.stepperButtonImg} />
+        <img src={plusIcon} className={styles.stepperButtonImg} alt="cartItem-quantity-plus-icon" />
       </button>
     </div>
   );

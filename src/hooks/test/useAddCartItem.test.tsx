@@ -1,14 +1,21 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
-import useAddCartItem from '../useAddCartItem';
-import useCartItems from '../useCartItems';
+import useAddCartItem from '../queries/useAddCartItem';
+import useCartItems from '../queries/useCartItems';
 import { queryWrapper } from './wrapper.util';
+import { useToast } from '../useToast';
+import { ERROR } from '@/constant/message';
 
 describe('useAddCartItem 훅 테스트', () => {
   it('장바구니에 상품을 상품 ID로 추가한다.', async () => {
     const { result } = renderHook(
       () => {
+        const { showToast } = useToast();
         const { cartItems, cartItemsQuerySuccess } = useCartItems();
-        const { addCartItem, isAddCartItemSuccess } = useAddCartItem();
+        const { addCartItem, isAddCartItemSuccess } = useAddCartItem({
+          onError: () => {
+            showToast({ message: ERROR.addProduct, duration: 3000 });
+          },
+        });
 
         return {
           addCartItem,
@@ -45,7 +52,12 @@ describe('useAddCartItem 훅 테스트', () => {
   it('장바구니에 상품을 상품 ID로 추가할 때, 존재하지 않는 상품 ID라면 에러를 받는다', async () => {
     const { result } = renderHook(
       () => {
-        const { addCartItem, isAddCartItemError } = useAddCartItem();
+        const { showToast } = useToast();
+        const { addCartItem, isAddCartItemError } = useAddCartItem({
+          onError: () => {
+            showToast({ message: ERROR.addProduct, duration: 3000 });
+          },
+        });
 
         return {
           addCartItem,

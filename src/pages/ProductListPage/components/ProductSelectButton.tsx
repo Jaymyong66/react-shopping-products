@@ -14,12 +14,12 @@ const ProductSelectButton = ({ isSelected, ...props }: Props) => {
     <button className={`${styles.productCartButton} ${styles[buttonStyle]}`} {...props}>
       {isSelected ? (
         <>
-          <img src={removeCartIcon} width={14} height={14} />
+          <img src={removeCartIcon} width={14} height={14} alt="cartItem-remove-icon" />
           빼기
         </>
       ) : (
         <>
-          <img src={addCartIcon} width={14} height={14} />
+          <img src={addCartIcon} width={14} height={14} alt="cartItem-add-icon" />
           담기
         </>
       )}

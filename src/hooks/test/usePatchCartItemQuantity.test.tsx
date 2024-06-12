@@ -1,15 +1,21 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { queryWrapper } from './wrapper.util';
-import useCartItems from '../useCartItems';
-import usePatchCartItemQuantity from '../usePatchCartItemQuantity';
+import useCartItems from '../queries/useCartItems';
+import usePatchCartItemQuantity from '../queries/usePatchCartItemQuantity';
+import { useToast } from '../useToast';
+import { ERROR } from '@/constant/message';
 
 describe('usePatchCartItemQuantity 훅 테스트', () => {
   it('장바구니 ID 11294와 수량 2로 해당 상품의 장바구니 수량을 변경시킨다', async () => {
     const { result } = renderHook(
       () => {
+        const { showToast } = useToast();
         const { cartItems, cartItemsQuerySuccess } = useCartItems();
-        const { patchCartItemQuantity, isPatchCartItemQuantitySuccess } =
-          usePatchCartItemQuantity();
+        const { patchCartItemQuantity, isPatchCartItemQuantitySuccess } = usePatchCartItemQuantity({
+          onError: () => {
+            showToast({ message: ERROR.patchCartItemQuantity, duration: 3000 });
+          },
+        });
 
         return {
           patchCartItemQuantity,
@@ -50,11 +56,16 @@ describe('usePatchCartItemQuantity 훅 테스트', () => {
   it('장바구니 상품의 수량을 변경할 때, 존재하지 않는 장바구니 ID라면 에러를 받는다', async () => {
     const { result } = renderHook(
       () => {
+        const { showToast } = useToast();
         const {
           patchCartItemQuantity,
           isPatchCartItemQuantitySuccess,
           isPatchCartItemQuantityError,
-        } = usePatchCartItemQuantity();
+        } = usePatchCartItemQuantity({
+          onError: () => {
+            showToast({ message: ERROR.patchCartItemQuantity, duration: 3000 });
+          },
+        });
 
         return {
           patchCartItemQuantity,

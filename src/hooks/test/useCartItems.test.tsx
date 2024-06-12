@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react';
-import useCartItems from '../useCartItems';
+import useCartItems from '../queries/useCartItems';
 import cartItems from '@/mocks/cartItems.json';
 import { queryWrapper } from './wrapper.util';
 

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchCartItem } from '../api';
-import { QUERY_KEY } from '../constant/queryKey';
+import { fetchCartItem } from '../../api';
+import { QUERY_KEY } from '../../constant/queryKey';
 
 const useCartItems = () => {
   const {

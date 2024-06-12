@@ -3,7 +3,7 @@ import ProductItemList from './components/ProductItemList';
 import ProductListHeader from './components/ProductListHeader';
 import ProductListSelectBar from './components/ProductListSelectBar';
 import ProductListTitle from './components/ProductListTitle';
-import useCartItems from '@/hooks/useCartItems';
+import useCartItems from '@/hooks/queries/useCartItems';
 import CartModal from '@/components/CartModal/CartModal';
 import styles from './ProductListPage.module.css';
 import { useToast } from '@/hooks/useToast';
